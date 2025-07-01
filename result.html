@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Result</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Your Result</h2>
+    <p id="resultText"></p>
+    <a href="index.html">Back to Login</a>
+  </div>
+
+<script>
+  const result = parseFloat(localStorage.getItem("quiz_result"));
+  const username = localStorage.getItem("quiz_currentUser");
+  const resultText = document.getElementById("resultText");
+
+  if (result >= 60) {
+    resultText.innerHTML = `🎉 <strong>Congratulations, <span style="color:blue;">${username}</span>!</strong><br>You are <span style="color:green;">PASSED</span> in the Exam.<br>Score: ${result.toFixed(2)}%`;
+  } else {
+    resultText.innerHTML = `❌ <strong>Sorry, <span style="color:blue;">${username}</span>.</strong><br>You are <span style="color:red;">FAILED</span> in the Exam.<br>Score: ${result.toFixed(2)}%`;
+  }
+</script>
+
+
+
+</body>
+</html>
